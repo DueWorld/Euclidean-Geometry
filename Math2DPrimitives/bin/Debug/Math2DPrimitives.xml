@@ -1,0 +1,573 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Math2DPrimitives.cs</name>
+    </assembly>
+    <members>
+        <member name="T:MathEuclideanPrimitives.Line2D">
+            <summary>
+            Class built using Euclidean 2D geometry properties.
+            Geometry line in linear form. General form and in slope form respectively:
+            A(x Constant)x + B(y constant)y +(individual constant) C = 0;
+             Y= m(slope)x+b(y interception);
+            <see href="http://en.wikipedia.org/wiki/Linear_equation"/>
+            <see href="https://en.wikipedia.org/wiki/Euclidean_geometry"/>
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            A hidden constructor.
+            </summary>
+            <param name="slope"></param>
+            <param name="yInter"></param>
+            <param name="xConst"></param>
+            <param name="yConst"></param>
+            <param name="Const"></param>
+            <param name="start"></param>
+            <param name="end"></param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            A hidden constructor.
+            </summary>
+            <param name="slope"></param>
+            <param name="yInter"></param>
+            <param name="xConst"></param>
+            <param name="yConst"></param>
+            <param name="Const"></param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.CreateByPoints(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Creates a Line by the start and the end point if known, will calculate every other form.
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.CreateBySlope(System.Single,System.Single)">
+            <summary>
+            Creates a line using the slope and the y intercept if known, will calculate every other form. 
+            </summary>
+            <param name="slope"></param>
+            <param name="yIntercept"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.CreateByStandardForm(System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a line using the general form factors if known, will calculate every other form. 
+            </summary>
+            <param name="xConstant"></param>
+            <param name="yConstant"></param>
+            <param name="constant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.Intersect(MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Intersecting 2 Lines together using linear Equations. 
+            <seealso href="https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection"/>
+            </summary>
+            <param name="intersectedLine">Line to be intersected with.</param>
+            <returns>Intersection point.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.Intersect(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Intersecting 2 Lines together using linear Equations.
+            <seealso href="https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection"/>
+            </summary>
+            <param name="intersectLine1">First Line.</param>
+            <param name="intersectLine2">Second Line.</param>
+            <returns>Intersection Point.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MathEuclideanPrimitives.Line2D.Intersect(System.Single,System.Single)" -->
+        <!-- Badly formed XML comment ignored for member "M:MathEuclideanPrimitives.Line2D.Intersect(System.Single,System.Single,System.Single)" -->
+        <member name="M:MathEuclideanPrimitives.Line2D.GetDistance(MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Gets the perpendicular distance between a point and a line.
+            <seealso href="https://en.wikipedia.org/wiki/Distance_from_a_point_to_a_line"/>
+            </summary>
+            <param name="p1">Point in 2D space</param>
+            <returns>The distance between the line and the point.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.GetDistance(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Gets the perpendicular distance between a point and a line.
+            <seealso href="https://en.wikipedia.org/wiki/Distance_from_a_point_to_a_line"/>
+            </summary>
+            <param name="p1">Point in 2D space</param>
+            <param name="l1">Line</param>
+            <returns>The distance between the line and the point.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.GetAngles(MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Gets both the inner and the outer angles between 2 lines.
+            <seealso href="https://www.mathstopia.net/coordinate-geometry/angle-two-lines"/>
+            </summary>
+            <param name="l1">first line.</param>
+            <returns>Value Tuples of the Acute and Obtuse Angle between 2 lines</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.GetAngles(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Gets both the inner and the outer angles between 2 lines.
+            <seealso href="https://www.mathstopia.net/coordinate-geometry/angle-two-lines"/>
+            </summary>
+            <param name="l1">first line.</param>
+            <param name="l2">second line.</param>
+            <returns>Value Tuples of the Acute and Obtuse Angle between 2 lines</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.GetSlopeFromPoints(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Using Algebraic calculations getting the slope from start and end points.
+            y2-y1/x2-x1;
+            </summary>
+            <param name="p1">Start Point.</param>
+            <param name="p2">End Point.</param>
+            <returns>Slope</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.GetYInterceptFromPoints(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Using Algebraic calculations getting the y intercept from start and end points.
+            </summary>
+            <param name="p1">Start Point.</param>
+            <param name="p2">End Point.</param>
+            <returns>Y Intercepting.</returns>
+        </member>
+        <member name="T:MathEuclideanPrimitives.Point2D">
+            <summary>
+            A Primitive representation of 2D coordinate tuples in space.
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Point2D.#ctor(System.Single,System.Single)">
+            <summary>
+            Instantiates a point by its X and Y coordinates.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Point2D.GetDistance(MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Gets the distance between 2 points.
+            </summary>
+            <param name="p">The other Point.</param>
+            <returns>Distance between the 2 points.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Point2D.GetDistance(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Gets the distance between 2 points.
+            </summary>
+            <param name="p1">First Point.</param>
+            <param name="p2">Second Point.</param>
+            <returns>Distance between the 2 points.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Point2D.ToVector">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Point2D.ToVector(MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Point2D.Equals(MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MathEuclideanPrimitives.PointThreshold">
+            <summary>
+            A fairly horizontal line made, this class can be helpful implementing many 
+            polygon algorithms.
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.PointThreshold.CreateByPoints(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Create the threshold by the start and the end points.
+            </summary>
+            <param name="index"></param>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.PointThreshold.CreateBySlope(System.Single,System.Single)">
+            <summary>
+            Creates the threshold by the yIntercept
+            Slope is zero in case of a horizontal threshold -the default case-)
+            </summary>
+            <param name="index"></param>
+            <param name="slope"></param>
+            <param name="yIntercept"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MathEuclideanPrimitives.Polygon">
+            <summary>
+            A primitive polygon class,
+            this class will construct its sides in a listed fashion,
+            preferably to make the points list in an Anti-Clock-Wise format,
+            this class will have its points in a listed fashion.
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Polygon.#ctor(System.Collections.Generic.List{MathEuclideanPrimitives.Point2D})">
+            <summary>
+            Instantiates a polygon by its respectively added vertices.
+            </summary>
+            <param name="polygonList">List of vertices.</param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Polygon.#ctor(MathEuclideanPrimitives.Point2D[])">
+            <summary>
+            Instantiates a polygon by its respectively added vertices.
+            </summary>
+            <param name="points"> Will be added to the list of Vertices of the polygon.</param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Polygon.ConstructSides(System.Collections.Generic.List{MathEuclideanPrimitives.Point2D})">
+            <summary>
+            Construct every side of the polygon using the same order of the vertices.
+            </summary>
+            <param name="points">List of vertices.</param>
+            <returns>List of side.</returns>
+        </member>
+        <member name="T:MathEuclideanPrimitives.PolygonSide">
+            <summary>
+            A primitive element of the Polygon representing a side of the polygon.
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.PolygonSide.CreateByPoints(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Creates a side by the start and the end point if known, will calculate every other form.
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.PolygonSide.CreateBySlope(System.Single,System.Single)">
+            <summary>
+            Creates a side using the slope and the y intercept if known, will calculate every other form. 
+            </summary>
+            <param name="slope"></param>
+            <param name="yIntercept"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MathEuclideanPrimitives.Utilities.PrimitiveUtils">
+            <summary>
+            Containing various static and extended functions
+            that serve as a boolean and other operations on 
+            primitive elements such as a point or a line or a polygon.
+            NOTE: All of the operations related to the line requires
+            definite start and end points defined for this line.
+            </summary>
+        </member>
+        <member name="F:MathEuclideanPrimitives.Utilities.PrimitiveUtils.fudge">
+            <summary>
+            A fudge leftover of equating a double point space.
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsPointInPolygon(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            A simple point in polygon algorithm implementation.
+            </summary>
+            <see href="https://en.wikipedia.org/wiki/Point_in_polygon"/>
+            <param name="polygon">Primtivie polygon.</param>
+            <param name="point">Primtive point.</param>
+            <returns>bool flag indicating whether a point is in or out a polygon
+            NOTE:points on the edge of a polygon are considered inside the polygon.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.ArePointsInPolygon(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D[])">
+            <summary>
+            Inquires if all the points are in a polygon.
+            </summary>
+            <param name="polygon"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsAnyPointInPolygon(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D[])">
+            <summary>
+            Inquires if any of the points is in a polygon.
+            </summary>
+            <param name="polygon"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.GetLineOffsetFromCenterLine(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D,System.Double)">
+            <summary>
+            Given a planar element with thickness,
+            this function will determine its boundary extreme lines from the centerline.
+            </summary>
+            <param name="startPoint">Starting point of the center line.</param>
+            <param name="endPoint">Ending point of the center line.</param>
+            <param name="width">Width of the planar element.</param>
+            <returns>A value tuple include the 2 extreme sides of the planar element.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsPointOnEdge(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Inquires if the given point lies on the edge of a given polygon.
+            </summary>
+            <param name="polygon"></param>
+            <param name="point"></param>
+            <returns>A flag if true the point is on the edge.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.AreAllPointsOnEdge(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D[])">
+            <summary>
+            Inquires if all the points are on the edge of a polygon.
+            </summary>
+            <param name="polygon"></param>
+            <param name="points">Any number of points to be predicated.</param>
+            <returns>A flag if true all the points must be on the edge.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsAnyPointOnEdge(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D[])">
+            <summary>
+            Inquires if any of the points are on the edge of a polygon.
+            </summary>
+            <param name="polygon"></param>
+            <param name="points"></param>
+            <returns>A flag if true one or more points must be on the edge.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsPolygonHavingHorizontalSides(MathEuclideanPrimitives.Polygon)">
+            <summary>
+            Inquires if the polygon has any horizontal sides.
+            </summary>
+            <param name="polygon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsPolygonHavingVerticalSides(MathEuclideanPrimitives.Polygon)">
+            <summary>
+            Inquires if the polygon has any vertical sides.
+            </summary>
+            <param name="polygon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsLineVertical(MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if the line is vertical.
+            Note: Line must have a definite start and end point.
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsLineHorizontal(MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if the line is horizontal.
+            Note: Line must have a definite start and end point.
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsLineInclined(MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if the line is inclined.
+            Note: Line must have a definite start and end point.
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.InclinedLinesCollinear(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if the incline lines are collinear,
+            meaning that they share the same slope and intercept value of the Y-axis.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <see href="https://www.easycalculation.com/maths-dictionary/collinear_line.html"/>
+            <param name="line1"></param>
+            <param name="line2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsLineTotallyOverLapping(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if one of the lines is totally inside the other line.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <param name="l1"></param>
+            <param name="l2"></param>
+            <returns></returns>           
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsLinePartiallyOverLapping(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if one of the lines is partially inside the other line.
+            NOTE: If the start or end of the first line is the same as the 
+            start or end of the second line, this function will return false.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <param name="l1"></param>
+            <param name="l2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsLineGenerallyOverLapping(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquire if one of the lines is partially or totally inside the other line.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <param name="l1"></param>
+            <param name="l2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.GetMidPoint(MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Get the mid point of an Euclidean 2D Line.
+            </summary>
+            <param name="line">2 dimensional line.</param>
+            <returns>Mid point.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsPointOnLine(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Inquires if the point is on a line.
+            NOTE: This function only acknowledges the boundaries of the start and end
+            of the line, meaning if the point is satisfying the equation of a line but
+            lies outside the range of the line's start or end point this function will
+            return false.
+            Note: Line must have a definite start and end point.
+            </summary>
+            <param name="line"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.GetMidPoint(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Gets the midpoint between 2 points.
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsLineHavingPoints(MathEuclideanPrimitives.Line2D)">
+            <summary>
+            The Line2D class can be instantiated only by its Euclidean space
+            slope or general formula, if this line is instantiated by
+            the end and start points this function will return true.
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsYLineCoordsInRange(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            A helper function to check if the Y coordinates of the start or end point
+            of a line is totally inside the Y coordinates range of the start or end point
+            of the other line.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <param name="line1"></param>
+            <param name="line2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsXLineCoordsInRange(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            A helper function to check if the X coordinates of the start or end point
+            of a line is totally inside the X coordinates range of the start or end point
+            of the other line.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <param name="line1"></param>
+            <param name="line2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.AreNumbersInRange(System.Double,System.Double,System.Double[])">
+            <summary>
+            A helper function to determine if some numbers are in the range of 2 extremes numbers.
+            </summary>
+            <param name="extreme1"></param>
+            <param name="extreme2"></param>
+            <param name="numbers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.ResetPolygonSides(System.Collections.Generic.List{MathEuclideanPrimitives.PolygonSide})">
+            <summary>
+            Resets all the cross sides of a polygon, to ensure lose connections between various classes.
+            </summary>
+            <param name="sides">List of polygon sides.</param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.ModifyPolygonSides(System.Collections.Generic.List{MathEuclideanPrimitives.PolygonSide},MathEuclideanPrimitives.PointThreshold)">
+            <summary>
+            Decides whether a polygon side is a cross side or not,
+            this concept exits in various polygon algorithms like
+            an efficient fill-in algorithm or a point in polygon algorithm
+            this concept is used to handle degenerate cases,
+            when a threshold of a point intersects the start/end of a polygon side.
+            </summary>
+            <param name="sides">List of a polygo's sides.</param>
+            <param name="threshold">Point threshold to decide which side is a cross side.</param>
+        </member>
+        <member name="T:MathEuclideanPrimitives.Vector2D">
+            <summary>
+            A struct representing a vector in R2 space.
+            <seealso href="https://en.wikipedia.org/wiki/Linear_algebra#Vector_spaces"/>
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.Dot(MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            Performs a dot product.
+            </summary>
+            <param name="v1">First Vector.</param>
+            <seealso cref="!:https://en.wikipedia.org/wiki/Dot_product"/>
+            <returns>Double value of the Dot product.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.Cross(MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            Performs a 2D Cross product which is the value of a determinant.
+            </summary>
+            <param name="v1">First Vector.</param>
+            <returns>Double Value of the Cross Product.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.ComputeAngle(MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            Using dot product to compute the angle between Vectors.
+            <see href="https://en.wikipedia.org/wiki/Dot_product"/>
+            </summary>
+            <param name="v">The other Vector.</param>
+            <returns>Double Angle in Degrees.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.Normalize">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.Normalize(MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            
+            </summary>
+            <param name="vector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.ToPoint">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.ToPoint(MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            
+            </summary>
+            <param name="vector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.Dot(MathEuclideanPrimitives.Vector2D,MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            Performs a dot product.
+            </summary>
+            <param name="v1">First Vector.</param>
+            <param name="v2">Second Vector.</param>
+            <seealso cref="!:https://en.wikipedia.org/wiki/Dot_product"/>
+            <returns>Double value of the Dot product.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.Cross(MathEuclideanPrimitives.Vector2D,MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            Performs a 2D Cross product which is the value of a determinant.
+            </summary>
+            <param name="v1">First Vector.</param>
+            <param name="v2">Second Vector.</param>
+            <returns>Double Value of the Cross Product.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.ComputeAngle(MathEuclideanPrimitives.Vector2D,MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            Using dot product to compute the angle between Vectors.
+            <see href="https://en.wikipedia.org/wiki/Dot_product"/>
+            </summary>
+            <param name="v1">The first Vector.</param>
+            <param name="v2">The other Vector.</param>
+            <returns>Double Angle in Degrees.</returns>
+        </member>
+    </members>
+</doc>

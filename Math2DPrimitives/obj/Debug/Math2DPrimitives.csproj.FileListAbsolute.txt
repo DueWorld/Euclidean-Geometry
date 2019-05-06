@@ -1,0 +1,13 @@
+c:\users\worlddj1\documents\visual studio 2017\Projects\Math2DPrimitives.cs\Math2DPrimitives.cs\bin\Debug\Math2DPrimitives.cs.dll.config
+c:\users\worlddj1\documents\visual studio 2017\Projects\Math2DPrimitives.cs\Math2DPrimitives.cs\bin\Debug\Math2DPrimitives.cs.dll
+c:\users\worlddj1\documents\visual studio 2017\Projects\Math2DPrimitives.cs\Math2DPrimitives.cs\bin\Debug\Math2DPrimitives.cs.pdb
+c:\users\worlddj1\documents\visual studio 2017\Projects\Math2DPrimitives.cs\Math2DPrimitives.cs\obj\Debug\Math2DPrimitives.cs.dll
+c:\users\worlddj1\documents\visual studio 2017\Projects\Math2DPrimitives.cs\Math2DPrimitives.cs\obj\Debug\Math2DPrimitives.cs.pdb
+c:\users\worlddj1\documents\visual studio 2017\Projects\Math2DPrimitives.cs\Math2DPrimitives.cs\bin\Debug\Math2DPrimitives.cs.xml
+c:\users\worlddj1\documents\visual studio 2017\Projects\Math2DPrimitives.cs\Math2DPrimitives.cs\obj\Debug\Math2DPrimitives.csprojResolveAssemblyReference.cache
+C:\Users\WorldDj1\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.dll.config
+C:\Users\WorldDj1\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.xml
+C:\Users\WorldDj1\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.dll
+C:\Users\WorldDj1\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.pdb
+C:\Users\WorldDj1\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\obj\Debug\Math2DPrimitives.cs.dll
+C:\Users\WorldDj1\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\obj\Debug\Math2DPrimitives.cs.pdb
