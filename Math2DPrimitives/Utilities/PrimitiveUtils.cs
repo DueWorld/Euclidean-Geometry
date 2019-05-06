@@ -298,7 +298,7 @@
             {
                 var difference = Math.Abs(l1.StartPoint.Y - l2.StartPoint.Y);
 
-                var coords = new List<float>{l1.StartPoint.X, l1.EndPoint.X,
+                var coords = new List<double>{l1.StartPoint.X, l1.EndPoint.X,
                                              l2.StartPoint.X,l2.EndPoint.X};
                 coords.Sort();
                 if (difference <= fudge && IsXLineCoordsInRange(l1, l2))
@@ -311,7 +311,7 @@
             {
                 var difference = Math.Abs(l1.StartPoint.X - l2.StartPoint.X);
 
-                var coords = new List<float>{l1.StartPoint.Y, l1.EndPoint.Y,
+                var coords = new List<double>{l1.StartPoint.Y, l1.EndPoint.Y,
                                              l2.StartPoint.Y,l2.EndPoint.Y};
                 coords.Sort();
                 if (difference <= fudge && IsYLineCoordsInRange(l1, l2))
@@ -409,6 +409,8 @@
         {
             return GetMidPoint(line.StartPoint, line.EndPoint);
         }
+
+
         #endregion
 
 
@@ -473,6 +475,35 @@
             return new Point2D((start.X + end.X) / 2, (start.Y + end.Y) / 2);
         }
 
+        /// <summary>
+        /// Mirrors a point around an aligned axis.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        public static Point2D MirrorPoint(Point2D point, Line2D line)
+        {
+            if (IsLineHorizontal(line))
+            {
+                Point2D intersectionPoint = new Point2D(point.X, line.StartPoint.Y);
+                return new Point2D(2 * intersectionPoint.X - point.X, 2 * intersectionPoint.Y - point.Y);
+
+            }
+
+            else if (IsLineVertical(line))
+            {
+                Point2D intersectionPoint = new Point2D(line.StartPoint.X, point.Y);
+                return new Point2D(2 * intersectionPoint.X - point.X, 2 * intersectionPoint.Y - point.Y);
+            }
+            else
+            {
+                double perpendicularSlope = -1 / line.Slope;
+                Line2D linePerp = Line2D.CreateByPointAndSlope(point, perpendicularSlope);
+                Point2D intersectionPoint = linePerp.Intersect(line);
+                return new Point2D(2 * intersectionPoint.X - point.X, 2 * intersectionPoint.Y - point.Y);
+            }
+        }
+
         #endregion
 
 
@@ -505,7 +536,7 @@
         /// <returns></returns>
         private static bool IsYLineCoordsInRange(Line2D line1, Line2D line2)
         {
-            var coords = new List<float>{line1.StartPoint.Y, line1.EndPoint.Y,
+            var coords = new List<double>{line1.StartPoint.Y, line1.EndPoint.Y,
                                          line2.StartPoint.Y,line2.EndPoint.Y};
             coords.Sort();
             if (line1.StartPoint.Y == coords.First() && line1.EndPoint.Y == coords.Last() ||
@@ -533,7 +564,7 @@
         /// <returns></returns>
         private static bool IsXLineCoordsInRange(Line2D line1, Line2D line2)
         {
-            var coords = new List<float>{line1.StartPoint.X, line1.EndPoint.X,
+            var coords = new List<double>{line1.StartPoint.X, line1.EndPoint.X,
                                          line2.StartPoint.X,line2.EndPoint.X};
             coords.Sort();
             if (line1.StartPoint.X == coords.First() && line1.EndPoint.X == coords.Last() ||

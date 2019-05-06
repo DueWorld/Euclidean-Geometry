@@ -14,7 +14,7 @@
             <see href="https://en.wikipedia.org/wiki/Euclidean_geometry"/>
             </summary>
         </member>
-        <member name="M:MathEuclideanPrimitives.Line2D.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+        <member name="M:MathEuclideanPrimitives.Line2D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
             <summary>
             A hidden constructor.
             </summary>
@@ -26,7 +26,7 @@
             <param name="start"></param>
             <param name="end"></param>
         </member>
-        <member name="M:MathEuclideanPrimitives.Line2D.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single)">
+        <member name="M:MathEuclideanPrimitives.Line2D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             A hidden constructor.
             </summary>
@@ -44,7 +44,7 @@
             <param name="end"></param>
             <returns></returns>
         </member>
-        <member name="M:MathEuclideanPrimitives.Line2D.CreateBySlope(System.Single,System.Single)">
+        <member name="M:MathEuclideanPrimitives.Line2D.CreateBySlope(System.Double,System.Double)">
             <summary>
             Creates a line using the slope and the y intercept if known, will calculate every other form. 
             </summary>
@@ -52,13 +52,21 @@
             <param name="yIntercept"></param>
             <returns></returns>
         </member>
-        <member name="M:MathEuclideanPrimitives.Line2D.CreateByStandardForm(System.Single,System.Single,System.Single)">
+        <member name="M:MathEuclideanPrimitives.Line2D.CreateByStandardForm(System.Double,System.Double,System.Double)">
             <summary>
             Creates a line using the general form factors if known, will calculate every other form. 
             </summary>
             <param name="xConstant"></param>
             <param name="yConstant"></param>
             <param name="constant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Line2D.CreateByPointAndSlope(MathEuclideanPrimitives.Point2D,System.Double)">
+            <summary>
+            Creates a line using a point and slope.
+            </summary>
+            <param name="point"></param>
+            <param name="slope"></param>
             <returns></returns>
         </member>
         <member name="M:MathEuclideanPrimitives.Line2D.Intersect(MathEuclideanPrimitives.Line2D)">
@@ -78,8 +86,8 @@
             <param name="intersectLine2">Second Line.</param>
             <returns>Intersection Point.</returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:MathEuclideanPrimitives.Line2D.Intersect(System.Single,System.Single)" -->
-        <!-- Badly formed XML comment ignored for member "M:MathEuclideanPrimitives.Line2D.Intersect(System.Single,System.Single,System.Single)" -->
+        <!-- Badly formed XML comment ignored for member "M:MathEuclideanPrimitives.Line2D.Intersect(System.Double,System.Double)" -->
+        <!-- Badly formed XML comment ignored for member "M:MathEuclideanPrimitives.Line2D.Intersect(System.Double,System.Double,System.Double)" -->
         <member name="M:MathEuclideanPrimitives.Line2D.GetDistance(MathEuclideanPrimitives.Point2D)">
             <summary>
             Gets the perpendicular distance between a point and a line.
@@ -136,7 +144,7 @@
             A Primitive representation of 2D coordinate tuples in space.
             </summary>
         </member>
-        <member name="M:MathEuclideanPrimitives.Point2D.#ctor(System.Single,System.Single)">
+        <member name="M:MathEuclideanPrimitives.Point2D.#ctor(System.Double,System.Double)">
             <summary>
             Instantiates a point by its X and Y coordinates.
             </summary>
@@ -193,7 +201,7 @@
             <param name="end"></param>
             <returns></returns>
         </member>
-        <member name="M:MathEuclideanPrimitives.PointThreshold.CreateBySlope(System.Single,System.Single)">
+        <member name="M:MathEuclideanPrimitives.PointThreshold.CreateBySlope(System.Double,System.Double)">
             <summary>
             Creates the threshold by the yIntercept
             Slope is zero in case of a horizontal threshold -the default case-)
@@ -243,7 +251,7 @@
             <param name="end"></param>
             <returns></returns>
         </member>
-        <member name="M:MathEuclideanPrimitives.PolygonSide.CreateBySlope(System.Single,System.Single)">
+        <member name="M:MathEuclideanPrimitives.PolygonSide.CreateBySlope(System.Double,System.Double)">
             <summary>
             Creates a side using the slope and the y intercept if known, will calculate every other form. 
             </summary>
@@ -339,14 +347,7 @@
             <param name="polygon"></param>
             <returns></returns>
         </member>
-        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsLineVertical(MathEuclideanPrimitives.Line2D)">
-            <summary>
-            Inquires if the line is vertical.
-            Note: Line must have a definite start and end point.
-            </summary>
-            <param name="line"></param>
-            <returns></returns>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsLineVertical(MathEuclideanPrimitives.Line2D)" -->
         <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsLineHorizontal(MathEuclideanPrimitives.Line2D)">
             <summary>
             Inquires if the line is horizontal.
@@ -431,6 +432,14 @@
             <param name="end"></param>
             <returns></returns>
         </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.MirrorPoint(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Mirrors a point around an aligned axis.
+            </summary>
+            <param name="point"></param>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
         <member name="M:MathEuclideanPrimitives.Utilities.PrimitiveUtils.IsLineHavingPoints(MathEuclideanPrimitives.Line2D)">
             <summary>
             The Line2D class can be instantiated only by its Euclidean space
@@ -493,6 +502,26 @@
             A struct representing a vector in R2 space.
             <seealso href="https://en.wikipedia.org/wiki/Linear_algebra#Vector_spaces"/>
             </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.#ctor(System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.#ctor(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.#ctor(System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
         </member>
         <member name="M:MathEuclideanPrimitives.Vector2D.Dot(MathEuclideanPrimitives.Vector2D)">
             <summary>

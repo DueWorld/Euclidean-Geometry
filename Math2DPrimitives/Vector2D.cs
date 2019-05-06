@@ -6,7 +6,7 @@
     /// A struct representing a vector in R2 space.
     /// <seealso href="https://en.wikipedia.org/wiki/Linear_algebra#Vector_spaces"/>
     /// </summary>
-    public struct Vector2D
+    public class Vector2D
     {
         private double x;
         private double y;
@@ -20,18 +20,33 @@
         public static Vector2D BasisY => new Vector2D(0, 1);
         public static Vector2D Origin => new Vector2D(0, 0);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public Vector2D(double x, double y)
         {
             this.x = x;
             this.y = y;
             magintude = Math.Sqrt(x * x + y * y);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
         public Vector2D(Point2D start, Point2D end)
         {
             x = end.X - start.X;
             y = end.Y - start.Y;
             magintude = Math.Sqrt(x * x + y * y);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
         public Vector2D(double value)
         {
             x = y = value;

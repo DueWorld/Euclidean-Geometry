@@ -8,11 +8,11 @@
         public bool IsCrossSide { get; set; }
 
 
-        private PolygonSide(float slope, float yInter, float xConst, float yConst, float Const, Point2D start, Point2D end)
+        private PolygonSide(double slope, double yInter, double xConst, double yConst, double Const, Point2D start, Point2D end)
             : base(slope, yInter, xConst, yConst, Const, start, end)
         { }
 
-        private PolygonSide(float slope, float yInter, float xConst, float yConst, float Const)
+        private PolygonSide(double slope, double yInter, double xConst, double yConst, double Const)
             : base(slope, yInter, xConst, yConst, Const)
         { }
 
@@ -30,7 +30,7 @@
         /// <param name="slope"></param>
         /// <param name="yIntercept"></param>
         /// <returns></returns>
-        public static new PolygonSide CreateBySlope(float slope, float yIntercept) => new PolygonSide(slope, yIntercept, -slope, 1, -yIntercept);
+        public static new PolygonSide CreateBySlope(double slope, double yIntercept) => new PolygonSide(slope, yIntercept, -slope, 1, -yIntercept);
 
 
     }

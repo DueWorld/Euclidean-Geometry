@@ -11,3 +11,9 @@ C:\Users\WorldDj1\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DP
 C:\Users\WorldDj1\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.pdb
 C:\Users\WorldDj1\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\obj\Debug\Math2DPrimitives.cs.dll
 C:\Users\WorldDj1\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\obj\Debug\Math2DPrimitives.cs.pdb
+C:\Users\world\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\obj\Debug\Math2DPrimitives.cs.dll
+C:\Users\world\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\obj\Debug\Math2DPrimitives.cs.pdb
+C:\Users\world\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.dll.config
+C:\Users\world\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.xml
+C:\Users\world\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.dll
+C:\Users\world\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.pdb

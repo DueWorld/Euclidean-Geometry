@@ -6,7 +6,6 @@
     /// </summary>
     public sealed class PointThreshold : Line2D
     {
-
         /// <summary>
         /// Create the threshold by the start and the end points.
         /// </summary>
@@ -24,15 +23,15 @@
         /// <param name="slope"></param>
         /// <param name="yIntercept"></param>
         /// <returns></returns>
-        public static new PointThreshold CreateBySlope(float slope, float yIntercept) => new PointThreshold(0, yIntercept, 0, 1, -yIntercept);
-        
+        public static new PointThreshold CreateBySlope(double slope, double yIntercept) => new PointThreshold(0, yIntercept, 0, 1, -yIntercept);
+
 
         //Filling up constructors of the Line.
 
-        private PointThreshold(float slope, float yInter, float xConst, float yConst, float Const, Point2D start, Point2D end) : base(slope, yInter, xConst, yConst, Const, start, end)
+        private PointThreshold(double slope, double yInter, double xConst, double yConst, double Const, Point2D start, Point2D end) : base(slope, yInter, xConst, yConst, Const, start, end)
         { }
 
-        private PointThreshold(float slope, float yInter, float xConst, float yConst, float Const) : base(slope, yInter, xConst, yConst, Const)
+        private PointThreshold(double slope, double yInter, double xConst, double yConst, double Const) : base(slope, yInter, xConst, yConst, Const)
         { }
 
     }
