@@ -136,8 +136,6 @@
         /// <returns>Double Value of the Cross Product.</returns>
         public static double Cross(Vector2D v1, Vector2D v2) => v1.Cross(v2);
 
-
-
         /// <summary>
         /// Using dot product to compute the angle between Vectors.
         /// <see href="https://en.wikipedia.org/wiki/Dot_product"/>
@@ -147,17 +145,16 @@
         /// <returns>Double Angle in Degrees.</returns>
         public static double ComputeAngle(Vector2D v1, Vector2D v2) => v1.ComputeAngle(v2);
 
-        public static Vector2D operator +(Vector2D vLeft, double value) => new Vector2D(vLeft.x + value, vLeft.y + value);
-        public static Vector2D operator +(double value, Vector2D vRight) => new Vector2D(vRight.x + value, vRight.y + value);
         public static Vector2D operator +(Vector2D v1, Vector2D v2) => new Vector2D(v1.x + v2.x, v1.y + v2.y);
 
         public static Vector2D operator -(Vector2D v1, Vector2D v2) => new Vector2D(v1.x - v2.x, v1.y - v2.y);
-        public static Vector2D operator -(Vector2D vLeft, double value) => new Vector2D(vLeft.x - value, vLeft.y - value);
-        public static Vector2D operator -(double value, Vector2D vRight) => new Vector2D(vRight.x - value, vRight.y - value);
+
+
 
         public static Vector2D operator *(double value, Vector2D vRight) => new Vector2D(vRight.x * value, vRight.y * value);
         public static Vector2D operator *(Vector2D vLeft, double value) => new Vector2D(vLeft.x * value, vLeft.y * value);
         public static double operator *(Vector2D vLeft, Vector2D vRight) => vLeft.Dot(vRight);
+
 
 
 

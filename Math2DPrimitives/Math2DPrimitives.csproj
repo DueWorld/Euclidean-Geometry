@@ -5,12 +5,13 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FDF6D582-C773-425F-8769-A3E8CD9AA302}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Math2DPrimitives.cs</RootNamespace>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MathEuclideanPrimitives</RootNamespace>
     <AssemblyName>Math2DPrimitives.cs</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,11 +34,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,17 +52,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Line.cs" />
-    <Compile Include="Point2D.cs" />
-    <Compile Include="PointThreshold.cs" />
-    <Compile Include="Polygon.cs" />
-    <Compile Include="PolygonSide.cs" />
+    <Compile Include="Geometric Objects\Lines\Line.cs" />
+    <Compile Include="Geometric Objects\Lines\LineSegment.cs" />
+    <Compile Include="Geometric Objects\Lines\Ray.cs" />
+    <Compile Include="Geometric Objects\Coordinates\Point2D.cs" />
+    <Compile Include="Geometric Objects\Lines\PointThreshold.cs" />
+    <Compile Include="Geometric Objects\Polygon\Polygon.cs" />
+    <Compile Include="Geometric Objects\Polygon\PolygonSide.cs" />
+    <Compile Include="Geometric Objects\Regular Shapes\Circle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestProgram.cs" />
+    <Compile Include="Utilities\CircleUtilities.cs" />
+    <Compile Include="Utilities\CoordinateUtilities.cs" />
+    <Compile Include="Utilities\GeneralUtilities.cs" />
+    <Compile Include="Utilities\LineUtilities.cs" />
+    <Compile Include="Utilities\PolygonUtilities.cs" />
     <Compile Include="Utilities\PrimitiveUtils.cs" />
-    <Compile Include="Vector2D.cs" />
+    <Compile Include="Geometric Objects\Coordinates\Vector2D.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

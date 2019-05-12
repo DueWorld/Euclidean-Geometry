@@ -36,7 +36,7 @@
         {
             double coordDifY = Y - p.Y;
             double coordDifX = X - p.X;
-            return (double)Math.Sqrt((Math.Pow(coordDifY, 2)) + (Math.Pow(coordDifX, 2)));
+            return Math.Sqrt((Math.Pow(coordDifY, 2)) + (Math.Pow(coordDifX, 2)));
         }
 
 
@@ -71,5 +71,32 @@
         {
             return (X == other.X && Y == other.Y);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="v1"></param>
+        /// <returns></returns>
+        public static Point2D operator +(Point2D p1, Vector2D v1) => new Point2D(p1.X+v1.X,p1.Y+v1.Y);
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="v1"></param>
+        /// <returns></returns>
+        public static Point2D operator -(Point2D p1, Vector2D v1) => new Point2D(p1.X - v1.X, p1.Y - v1.Y);
+        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns></returns>
+        public static Vector2D operator -(Point2D p1, Point2D p2) => new Vector2D(p1.X - p2.X, p1.Y - p2.Y);
+
     }
 }

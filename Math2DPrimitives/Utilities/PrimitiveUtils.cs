@@ -11,6 +11,7 @@
     /// NOTE: All of the operations related to the line requires
     /// definite start and end points defined for this line.
     /// </summary>
+    [Obsolete("Use Utilities class instead.")]
     public static class PrimitiveUtils
     {
         /// <summary>
@@ -518,7 +519,7 @@
         /// <returns></returns>
         private static bool IsLineHavingPoints(Line2D line)
         {
-            if (line.StartPoint.Equals(new Point2D(0, 0)) && line.EndPoint.Equals(new Point2D(0, 0)))
+            if (line.StartPoint == null)
             {
                 return false;
             }

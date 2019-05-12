@@ -1,6 +1,7 @@
 ﻿namespace MathEuclideanPrimitives
 {
     using System;
+    using static Utilities.GeometricUtilities;
 
     /// <summary>
     /// Class built using Euclidean 2D geometry properties.
@@ -12,6 +13,10 @@
     /// </summary>
     public class Line2D
     {
+        /// <summary>
+        /// A fudge leftover of equating a double point space.
+        /// </summary>
+        private const double fudge = 0.001d;
 
         private double slope;
         private double yIntercept;
@@ -118,14 +123,70 @@
         /// <returns>Intersection point.</returns>
         public Point2D Intersect(Line2D intersectedLine)
         {
-            if (this.startPoint.X == this.endPoint.X && intersectedLine.startPoint.Y == intersectedLine.endPoint.Y)
+            if(!intersectedLine.IsLineHavingPoints())
             {
-                return new Point2D(startPoint.X, intersectedLine.startPoint.Y);
+                double x = ((intersectedLine.YIntercept - YIntercept) / (Slope - intersectedLine.Slope));
+                double y = intersectedLine.Slope * x + intersectedLine.YIntercept;
+                return new Point2D(x, y);
+            }
+            if (Math.Abs(this.slope - intersectedLine.slope) <= fudge && Math.Abs(this.YIntercept - intersectedLine.YIntercept) <= fudge)
+            {
+                return null;
+            }
+            if (this.IsHorizontal() && intersectedLine.IsHorizontal())
+            {
+                return null;
             }
 
-            double x = ((intersectedLine.YIntercept - YIntercept) / (Slope - intersectedLine.Slope));
-            double y = intersectedLine.Slope * x + intersectedLine.YIntercept;
-            return new Point2D(x, y);
+            else if (this.IsVertical() && intersectedLine.IsVertical())
+            {
+                return null;
+            }
+
+            else if (this.IsHorizontal() && intersectedLine.IsVertical())
+            {
+                return new Point2D(this.startPoint.X, intersectedLine.startPoint.Y);
+            }
+
+            else if (this.IsVertical() && intersectedLine.IsHorizontal())
+            {
+                return new Point2D(intersectedLine.startPoint.X, this.startPoint.Y);
+            }
+
+            else if (this.IsVertical() && intersectedLine.IsInclined())
+            {
+                double xVal = this.startPoint.X;
+                double yVal = intersectedLine.slope * xVal + intersectedLine.YIntercept;
+                return new Point2D(xVal, yVal);
+            }
+
+            else if (this.IsInclined() && intersectedLine.IsVertical())
+            {
+                double xVal = intersectedLine.startPoint.X;
+                double yVal = this.slope * xVal + this.YIntercept;
+                return new Point2D(xVal, yVal);
+            }
+
+            else if (this.IsHorizontal() && intersectedLine.IsInclined())
+            {
+                double yVal = this.startPoint.Y;
+                double xVal = yVal - intersectedLine.YIntercept / intersectedLine.slope;
+                return new Point2D(xVal, yVal);
+            }
+
+            else if (this.IsInclined() && intersectedLine.IsHorizontal())
+            {
+                double yVal = intersectedLine.startPoint.Y;
+                double xVal = yVal - this.YIntercept / this.slope;
+                return new Point2D(xVal, yVal);
+            }
+
+            else
+            {
+                double x = ((intersectedLine.YIntercept - YIntercept) / (Slope - intersectedLine.Slope));
+                double y = intersectedLine.Slope * x + intersectedLine.YIntercept;
+                return new Point2D(x, y);
+            }
 
         }
 
@@ -170,11 +231,38 @@
             return Intersect(refLine);
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        public Point2D Project(Point2D point)
+        {
+            if (this.IsVertical())
+            {
+                return new Point2D(this.startPoint.X, point.Y);
+            }
+            else if (this.IsHorizontal())
+            {
+                return new Point2D(point.X, this.startPoint.Y);
+            }
+
+            else
+            {
+                var newSlope = -1 / this.slope;
+                var yIntercept = point.Y - newSlope * point.X;
+                Line2D tempLine = Line2D.CreateBySlope(newSlope, yIntercept);
+                return this.Intersect(tempLine);
+            }
+        }
+
+
         /// <summary>
         /// Gets the perpendicular distance between a point and a line.
         /// <seealso href="https://en.wikipedia.org/wiki/Distance_from_a_point_to_a_line"/>
         /// </summary>
-        /// <param name="p1">Point in 2D space</param>
+        /// <param name="p">Point in 2D space</param>
         /// <returns>The distance between the line and the point.</returns>
         public double GetDistance(Point2D p)
         {
@@ -197,7 +285,7 @@
         /// Gets both the inner and the outer angles between 2 lines.
         /// <seealso href="https://www.mathstopia.net/coordinate-geometry/angle-two-lines"/>
         /// </summary>
-        /// <param name="l1">first line.</param>
+        /// <param name="l">first line.</param>
         /// <returns>Value Tuples of the Acute and Obtuse Angle between 2 lines</returns>
         public (double acuteAngle, double obtuseAngle) GetAngles(Line2D l)
         {
@@ -215,6 +303,7 @@
 
             return (angle2InDeg, angle1InDeg + 180);
         }
+
 
 
         /// <summary>
@@ -251,5 +340,8 @@
         {
             return ((p1.Y) - (GetSlopeFromPoints(p1, p2) * p1.X));
         }
+
+
+
     }
 }

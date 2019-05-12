@@ -14,6 +14,11 @@
             <see href="https://en.wikipedia.org/wiki/Euclidean_geometry"/>
             </summary>
         </member>
+        <member name="F:MathEuclideanPrimitives.Line2D.fudge">
+            <summary>
+            A fudge leftover of equating a double point space.
+            </summary>
+        </member>
         <member name="M:MathEuclideanPrimitives.Line2D.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
             <summary>
             A hidden constructor.
@@ -88,12 +93,19 @@
         </member>
         <!-- Badly formed XML comment ignored for member "M:MathEuclideanPrimitives.Line2D.Intersect(System.Double,System.Double)" -->
         <!-- Badly formed XML comment ignored for member "M:MathEuclideanPrimitives.Line2D.Intersect(System.Double,System.Double,System.Double)" -->
+        <member name="M:MathEuclideanPrimitives.Line2D.Project(MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
         <member name="M:MathEuclideanPrimitives.Line2D.GetDistance(MathEuclideanPrimitives.Point2D)">
             <summary>
             Gets the perpendicular distance between a point and a line.
             <seealso href="https://en.wikipedia.org/wiki/Distance_from_a_point_to_a_line"/>
             </summary>
-            <param name="p1">Point in 2D space</param>
+            <param name="p">Point in 2D space</param>
             <returns>The distance between the line and the point.</returns>
         </member>
         <member name="M:MathEuclideanPrimitives.Line2D.GetDistance(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Line2D)">
@@ -110,7 +122,7 @@
             Gets both the inner and the outer angles between 2 lines.
             <seealso href="https://www.mathstopia.net/coordinate-geometry/angle-two-lines"/>
             </summary>
-            <param name="l1">first line.</param>
+            <param name="l">first line.</param>
             <returns>Value Tuples of the Acute and Obtuse Angle between 2 lines</returns>
         </member>
         <member name="M:MathEuclideanPrimitives.Line2D.GetAngles(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
@@ -138,6 +150,97 @@
             <param name="p1">Start Point.</param>
             <param name="p2">End Point.</param>
             <returns>Y Intercepting.</returns>
+        </member>
+        <member name="T:MathEuclideanPrimitives.Geometric_Objects.Circle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.GetCenterPoint">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.GetXFactor">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.GetYFactor">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.GetConstant">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="xFactor"></param>
+            <param name="yFactor"></param>
+            <param name="constant"></param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.#ctor(System.Double,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="radius"></param>
+            <param name="centerPoint"></param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.#ctor(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="point"></param>
+            <param name="point2"></param>
+            <param name="point3"></param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.#ctor(MathEuclideanPrimitives.Point2D,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="center"></param>
+            <param name="circumference"></param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.#ctor(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="center"></param>
+            <param name="pointOnCircle"></param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.GetRadius">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.GetArea">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.GetCircumference">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.Equals(MathEuclideanPrimitives.Geometric_Objects.Circle)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <returns></returns>
         </member>
         <member name="T:MathEuclideanPrimitives.Point2D">
             <summary>
@@ -184,6 +287,30 @@
             
             </summary>
             <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Point2D.op_Addition(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            
+            </summary>
+            <param name="p1"></param>
+            <param name="v1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Point2D.op_Subtraction(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            
+            </summary>
+            <param name="p1"></param>
+            <param name="v1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Point2D.op_Subtraction(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
             <returns></returns>
         </member>
         <member name="T:MathEuclideanPrimitives.PointThreshold">
@@ -258,6 +385,446 @@
             <param name="slope"></param>
             <param name="yIntercept"></param>
             <returns></returns>
+        </member>
+        <member name="T:MathEuclideanPrimitives.Utilities.GeometricUtilities">
+            <summary>
+            General Euclidean Geometry utilities for coordinate geometry.
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsTouchingExternally(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Geometric_Objects.Circle)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="inquiredCircle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsTouchingInternally(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Geometric_Objects.Circle)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="inquiredCircle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsDistant(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Geometric_Objects.Circle)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="inquiredCircle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsInscribedInEachOther(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Geometric_Objects.Circle)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="inquiredCircle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsIntersecting(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Geometric_Objects.Circle)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="inquiredCircle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsDistant(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsIntersecting(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsTangent(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsPointOn(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsPointIn(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsPointOut(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.CreateCirclesFrom2Pts(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D,System.Double,System.@)">
+            <summary>
+            
+            </summary>
+            <param name="point1"></param>
+            <param name="point2"></param>
+            <param name="radius"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.OffsetPoint(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Point2D,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="point"></param>
+            <param name="arcLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.Intersect(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Geometric_Objects.Circle,System.@)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="intersectedCircle"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.Intersect(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Line2D,System.@)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="line"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.LiesOnBoundedLine(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if the point is on a line.
+            NOTE: This function only acknowledges the boundaries of the start and end
+            of the line, meaning if the point is satisfying the equation of a line but
+            lies outside the range of the line's start or end point this function will
+            return false.
+            Note: Line must have a definite start and end point.
+            </summary>
+            <param name="line"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.LiesOnUnBoundedLine(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if the point is on a line.
+            Note: Line must have a definite start and end point.
+            </summary>
+            <param name="line"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.GetMidPoint(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Gets the midpoint between 2 points.
+            </summary>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.MirrorPoint(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Mirrors a point around an aligned axis.
+            </summary>
+            <param name="point"></param>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.RotateDeg(MathEuclideanPrimitives.Point2D,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="vector"></param>
+            <param name="angleInDegree"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.RotateRad(MathEuclideanPrimitives.Point2D,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="vector"></param>
+            <param name="angleInRad"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.RotateDeg(MathEuclideanPrimitives.Vector2D,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="vector"></param>
+            <param name="angleInDegree"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.RotateRad(MathEuclideanPrimitives.Vector2D,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="vector"></param>
+            <param name="angleInRad"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.ToPoint(MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            
+            </summary>
+            <param name="vector"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.ToVector(MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="F:MathEuclideanPrimitives.Utilities.GeometricUtilities.fudge">
+            <summary>
+            A fudge leftover of equating a double point space.
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.AreNumbersInRange(System.Double,System.Double,System.Double[])">
+            <summary>
+            A helper function to determine if some numbers are in the range of 2 extremes numbers.
+            </summary>
+            <param name="extreme1"></param>
+            <param name="extreme2"></param>
+            <param name="numbers"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.ToDegree(System.Double)">
+            <summary>
+            Converts an angle from radians to degree.
+            </summary>
+            <param name="angleInRad"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.ToRad(System.Double)">
+            <summary>
+            Converts an angle to radians from degree.
+            </summary>
+            <param name="angleInDeg"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsVertical(MathEuclideanPrimitives.Line2D)" -->
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsHorizontal(MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if the line is horizontal.
+            Note: Line must have a definite start and end point.
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsInclined(MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if the line is inclined.
+            Note: Line must have a definite start and end point.
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.InclinedLinesCollinear(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if the incline lines are collinear,
+            meaning that they share the same slope and intercept value of the Y-axis.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <see href="https://www.easycalculation.com/maths-dictionary/collinear_line.html"/>
+            <param name="line1"></param>
+            <param name="line2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsTotallyOverLapping(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if one of the lines is totally inside the other line.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <param name="l1"></param>
+            <param name="l2"></param>
+            <returns></returns>           
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsPartiallyOverLapping(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquires if one of the lines is partially inside the other line.
+            NOTE: If the start or end of the first line is the same as the 
+            start or end of the second line, this function will return false.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <param name="l1"></param>
+            <param name="l2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsGenerallyOverLapping(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Inquire if one of the lines is partially or totally inside the other line.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <param name="l1"></param>
+            <param name="l2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.MidPoint(MathEuclideanPrimitives.Line2D)">
+            <summary>
+            Get the mid point of an Euclidean 2D Line.
+            </summary>
+            <param name="line">2 dimensional line.</param>
+            <returns>Mid point.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsXLineCoordsInRange(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            A helper function to check if the X coordinates of the start or end point
+            of a line is totally inside the X coordinates range of the start or end point
+            of the other line.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <param name="line1"></param>
+            <param name="line2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsPointOnLine(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Inquires if the point is on a line.
+            NOTE: This function only acknowledges the boundaries of the start and end
+            of the line, meaning if the point is satisfying the equation of a line but
+            lies outside the range of the line's start or end point this function will
+            return false.
+            Note: Line must have a definite start and end point.
+            </summary>
+            <param name="line"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsLineHavingPoints(MathEuclideanPrimitives.Line2D)">
+            <summary>
+            The Line2D class can be instantiated only by its Euclidean space
+            slope or general formula, if this line is instantiated by
+            the end and start points this function will return true.
+            </summary>
+            <param name="line"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsYLineCoordsInRange(MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Line2D)">
+            <summary>
+            A helper function to check if the Y coordinates of the start or end point
+            of a line is totally inside the Y coordinates range of the start or end point
+            of the other line.
+            Note: Lines must have a definite start and end point.
+            </summary>
+            <param name="line1"></param>
+            <param name="line2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.GetLineOffsetFromCenterLine(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D,System.Double)">
+            <summary>
+            Given a planar element with thickness,
+            this function will determine its boundary extreme lines from the centerline.
+            </summary>
+            <param name="startPoint">Starting point of the center line.</param>
+            <param name="endPoint">Ending point of the center line.</param>
+            <param name="width">Width of the planar element.</param>
+            <returns>A value tuple include the 2 extreme sides of the planar element.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsPointInPolygon(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            A simple point in polygon algorithm implementation.
+            </summary>
+            <see href="https://en.wikipedia.org/wiki/Point_in_polygon"/>
+            <param name="polygon">Primtivie polygon.</param>
+            <param name="point">Primtive point.</param>
+            <returns>bool flag indicating whether a point is in or out a polygon
+            NOTE:points on the edge of a polygon are considered inside the polygon.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.ArePointsInPolygon(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D[])">
+            <summary>
+            Inquires if all the points are in a polygon.
+            </summary>
+            <param name="polygon"></param>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsAnyPointInPolygon(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D[])">
+            <summary>
+            
+            </summary>
+            <param name="polygon"></param>
+            <param name="points"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsPointOnEdge(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            Inquires if the given point lies on the edge of a given polygon.
+            </summary>
+            <param name="polygon"></param>
+            <param name="point"></param>
+            <returns>A flag if true the point is on the edge.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.AreAllPointsOnEdge(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D[])">
+            <summary>
+            Inquires if all the points are on the edge of a polygon.
+            </summary>
+            <param name="polygon"></param>
+            <param name="points">Any number of points to be predicated.</param>
+            <returns>A flag if true all the points must be on the edge.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsAnyPointOnEdge(MathEuclideanPrimitives.Polygon,MathEuclideanPrimitives.Point2D[])">
+            <summary>
+            Inquires if any of the points are on the edge of a polygon.
+            </summary>
+            <param name="polygon"></param>
+            <param name="points"></param>
+            <returns>A flag if true one or more points must be on the edge.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsPolygonHavingHorizontalSides(MathEuclideanPrimitives.Polygon)">
+            <summary>
+            Inquires if the polygon has any horizontal sides.
+            </summary>
+            <param name="polygon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.IsPolygonHavingVerticalSides(MathEuclideanPrimitives.Polygon)">
+            <summary>
+            Inquires if the polygon has any vertical sides.
+            </summary>
+            <param name="polygon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.ResetPolygonSides(System.Collections.Generic.List{MathEuclideanPrimitives.PolygonSide})">
+            <summary>
+            Resets all the cross sides of a polygon, to ensure lose connections between various classes.
+            </summary>
+            <param name="sides">List of polygon sides.</param>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.ModifyPolygonSides(System.Collections.Generic.List{MathEuclideanPrimitives.PolygonSide},MathEuclideanPrimitives.PointThreshold)">
+            <summary>
+            Decides whether a polygon side is a cross side or not,
+            this concept exits in various polygon algorithms like
+            an efficient fill-in algorithm or a point in polygon algorithm
+            this concept is used to handle degenerate cases,
+            when a threshold of a point intersects the start/end of a polygon side.
+            </summary>
+            <param name="sides">List of a polygo's sides.</param>
+            <param name="threshold">Point threshold to decide which side is a cross side.</param>
         </member>
         <member name="T:MathEuclideanPrimitives.Utilities.PrimitiveUtils">
             <summary>
