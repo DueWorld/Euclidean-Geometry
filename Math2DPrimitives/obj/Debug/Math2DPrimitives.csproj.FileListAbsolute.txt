@@ -20,7 +20,7 @@ C:\Users\world\Documents\Visual Studio 2017\Projects\Math2DPrimitives\Math2DPrim
 E:\Tech\Math Repos\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.xml
 E:\Tech\Math Repos\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.pdb
 E:\Tech\Math Repos\Math2DPrimitives\Math2DPrimitives\obj\Debug\Math2DPrimitives.cs.pdb
-E:\Tech\Math Repos\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.exe.config
-E:\Tech\Math Repos\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.exe
+E:\Tech\Math Repos\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.dll.config
+E:\Tech\Math Repos\Math2DPrimitives\Math2DPrimitives\bin\Debug\Math2DPrimitives.cs.dll
+E:\Tech\Math Repos\Math2DPrimitives\Math2DPrimitives\obj\Debug\Math2DPrimitives.cs.dll
 E:\Tech\Math Repos\Math2DPrimitives\Math2DPrimitives\obj\Debug\Math2DPrimitives.csprojResolveAssemblyReference.cache
-E:\Tech\Math Repos\Math2DPrimitives\Math2DPrimitives\obj\Debug\Math2DPrimitives.cs.exe

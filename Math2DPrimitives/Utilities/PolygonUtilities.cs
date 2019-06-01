@@ -14,7 +14,7 @@
         /// <param name="point">Primtive point.</param>
         /// <returns>bool flag indicating whether a point is in or out a polygon
         /// NOTE:points on the edge of a polygon are considered inside the polygon.</returns>
-        public static bool IsPointInPolygon(Polygon polygon, Point2D point)
+        public static bool IsPointInPolygon(this Polygon polygon, Point2D point)
         {
             Point2D p;
             bool flag = false;
@@ -47,9 +47,9 @@
         /// Inquires if all the points are in a polygon.
         /// </summary>
         /// <param name="polygon"></param>
-        /// <param name="point"></param>
+        /// <param name="points"></param>
         /// <returns></returns>
-        public static bool ArePointsInPolygon(Polygon polygon, params Point2D[] points)
+        public static bool ArePointsInPolygon(this Polygon polygon, params Point2D[] points)
         {
             bool flag = true;
             foreach (var point in points)
@@ -63,12 +63,12 @@
 
 
         /// <summary>
-        /// 
+        /// Inquires if all the points are all inside the polygon.
         /// </summary>
         /// <param name="polygon"></param>
         /// <param name="points"></param>
         /// <returns></returns>
-        public static bool IsAnyPointInPolygon(Polygon polygon, params Point2D[] points)
+        public static bool IsAnyPointInPolygon(this Polygon polygon, params Point2D[] points)
         {
             bool flag = false;
             foreach (var point in points)
@@ -86,7 +86,7 @@
         /// <param name="polygon"></param>
         /// <param name="point"></param>
         /// <returns>A flag if true the point is on the edge.</returns>
-        public static bool IsPointOnEdge(Polygon polygon, Point2D point)
+        public static bool IsPointOnEdge(this Polygon polygon, Point2D point)
         {
             foreach (PolygonSide side in polygon.PolygonSides)
             {
@@ -102,7 +102,7 @@
         /// <param name="polygon"></param>
         /// <param name="points">Any number of points to be predicated.</param>
         /// <returns>A flag if true all the points must be on the edge.</returns>
-        public static bool AreAllPointsOnEdge(Polygon polygon, params Point2D[] points)
+        public static bool AreAllPointsOnEdge(this Polygon polygon, params Point2D[] points)
         {
             bool flag = true;
             foreach (var point in points)
@@ -119,7 +119,7 @@
         /// <param name="polygon"></param>
         /// <param name="points"></param>
         /// <returns>A flag if true one or more points must be on the edge.</returns>
-        public static bool IsAnyPointOnEdge(Polygon polygon, params Point2D[] points)
+        public static bool IsAnyPointOnEdge(this Polygon polygon, params Point2D[] points)
         {
             bool flag = true;
             foreach (var point in points)
@@ -135,7 +135,7 @@
         /// </summary>
         /// <param name="polygon"></param>
         /// <returns></returns>
-        public static bool IsPolygonHavingHorizontalSides(Polygon polygon)
+        public static bool IsPolygonHavingHorizontalSides(this Polygon polygon)
         {
             bool flag = false;
             foreach (PolygonSide side in polygon.PolygonSides)
@@ -154,7 +154,7 @@
         /// </summary>
         /// <param name="polygon"></param>
         /// <returns></returns>
-        public static bool IsPolygonHavingVerticalSides(Polygon polygon)
+        public static bool IsPolygonHavingVerticalSides(this Polygon polygon)
         {
             bool flag = false;
             foreach (PolygonSide side in polygon.PolygonSides)

@@ -123,7 +123,7 @@
         /// <returns>Intersection point.</returns>
         public Point2D Intersect(Line2D intersectedLine)
         {
-            if(!intersectedLine.IsLineHavingPoints())
+            if (!intersectedLine.IsLineHavingPoints())
             {
                 double x = ((intersectedLine.YIntercept - YIntercept) / (Slope - intersectedLine.Slope));
                 double y = intersectedLine.Slope * x + intersectedLine.YIntercept;
@@ -233,7 +233,8 @@
 
 
         /// <summary>
-        /// 
+        /// Projects a point in space to its perpendicular distance on the line.
+        /// This function needs a definite start and end points if the lines are horizontal or vertical.
         /// </summary>
         /// <param name="point"></param>
         /// <returns></returns>
@@ -266,9 +267,22 @@
         /// <returns>The distance between the line and the point.</returns>
         public double GetDistance(Point2D p)
         {
-            double sqrtForm = (double)Math.Sqrt(Math.Abs(Math.Pow(xConstant, 2) + (Math.Pow(yConstant, 2))));
+            if (this.IsLineHavingPoints())
+            {
+                if (this.IsHorizontal())
+                {
+                    return Math.Abs(p.Y - startPoint.Y);
+                }
+                if (this.IsVertical())
+                {
+                    return Math.Abs(p.X - startPoint.X);
+                }
+            }
+
+            double sqrtForm = Math.Sqrt(Math.Abs(Math.Pow(xConstant, 2) + (Math.Pow(yConstant, 2))));
             double nominator = xConstant * p.X + yConstant * p.Y + constant;
             return Math.Abs(nominator) / sqrtForm;
+
         }
 
         /// <summary>

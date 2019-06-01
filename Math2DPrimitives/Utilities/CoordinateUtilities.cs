@@ -134,7 +134,8 @@
         }
 
         /// <summary>
-        /// 
+        /// Rotates a point by a given angle in 2D space around the origin point of the vector.
+        /// Positive direction is the anti-clock wise direction.
         /// </summary>
         /// <param name="vector"></param>
         /// <param name="angleInDegree"></param>
@@ -147,7 +148,8 @@
         }
 
         /// <summary>
-        /// 
+        /// Rotates a point by a given angle in 2D space around the origin point of the vector.
+        /// Positive direction is the anti-clock wise direction. 
         /// </summary>
         /// <param name="vector"></param>
         /// <param name="angleInRad"></param>
@@ -164,7 +166,8 @@
         #region Vector applications
 
         /// <summary>
-        /// 
+        /// Rotates a vector by a given angle in 2D space around the origin point of the vector.
+        /// Positive direction is the anti-clock wise direction.
         /// </summary>
         /// <param name="vector"></param>
         /// <param name="angleInDegree"></param>
@@ -175,10 +178,10 @@
             double rotatedY = vector.X * Math.Sin(ToRad(angleInDegree)) + vector.Y * Math.Cos(ToRad(angleInDegree));
             return new Vector2D(rotatedX, rotatedY);
         }
-
-
+        
         /// <summary>
-        /// 
+        /// Rotates a vector by a given angle in 2D space around the origin point of the vector.
+        /// Positive direction is the anti-clock wise direction.
         /// </summary>
         /// <param name="vector"></param>
         /// <param name="angleInRad"></param>
@@ -194,7 +197,7 @@
         #region Conversions 
 
         /// <summary>
-        /// 
+        /// Converts from a vector into a point.
         /// </summary>
         /// <param name="vector"></param>
         /// <returns></returns>
@@ -204,7 +207,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Converts from a point into a vector.
         /// </summary>
         /// <param name="point"></param>
         /// <returns></returns>

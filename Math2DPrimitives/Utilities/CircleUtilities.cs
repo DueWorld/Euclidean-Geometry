@@ -10,7 +10,7 @@
         #region Booleans
 
         /// <summary>
-        /// 
+        /// Inquires if the two circle are touching externally at a point.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="inquiredCircle"></param>
@@ -24,7 +24,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Inquires if the two circle intersect each other.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="inquiredCircle"></param>
@@ -38,7 +38,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Inquires if the two circle do not intersect at all.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="inquiredCircle"></param>
@@ -52,7 +52,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Inquires if a circle is inscribed inside each other.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="inquiredCircle"></param>
@@ -66,7 +66,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Inquires if the two circle are intersecting by any means.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="inquiredCircle"></param>
@@ -79,7 +79,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Inquires if the given circle doesn't intersect with the given line.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="line"></param>
@@ -91,7 +91,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Inquires if the line is intersecting the circle.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="line"></param>
@@ -103,7 +103,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Inquires if the circle and the line touches at a point.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="line"></param>
@@ -115,7 +115,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Inquires if the given point is on the circle.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="point"></param>
@@ -127,7 +127,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Inquires if the given point is in the circle.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="point"></param>
@@ -140,7 +140,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Inquires if the given point is out the circle.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="point"></param>
@@ -156,7 +156,7 @@
         #region Creation
 
         /// <summary>
-        /// 
+        /// Creates 2 circle each two given points will pass right on them.
         /// </summary>
         /// <param name="point1"></param>
         /// <param name="point2"></param>
@@ -196,7 +196,39 @@
 
 
         /// <summary>
-        /// 
+        /// Gets the mid point of an arc which boundaries are given.
+        /// </summary>
+        /// <param name="circle"></param>
+        /// <param name="point1"></param>
+        /// <param name="point2"></param>
+        /// <returns></returns>
+        public static Point2D GetMidArcPoint(this Circle circle, Point2D point1, Point2D point2)
+        {
+            Vector2D v = point2 - point1;
+
+            if (Math.Abs((v.Magintude) - (circle.Radius * 2)) <= fudge)
+            {
+                v = v.Normalize();
+                v *= circle.Radius;
+                Vector2D perpVector = new Vector2D(-v.Y, v.X);
+                return circle.CenterPoint + perpVector;
+            }
+
+            Line2D line = Line2D.CreateByPoints(point1, point2);
+            Point2D midPoint = line.MidPoint();
+            Line2D perpLine = Line2D.CreateByPoints(circle.CenterPoint, midPoint);
+            circle.Intersect(perpLine, out Point2D pIntersect1, out Point2D pIntersect2);
+
+            var chosenPoint = line.GetDistance(pIntersect1) > line.GetDistance(pIntersect2)
+                ? pIntersect2 : pIntersect1;
+
+            return chosenPoint;
+        }
+
+
+        /// <summary>
+        /// Offsets a point on a circle with a given arc length.
+        /// The positive arc length indicates an offset taking place int eh anti clock wise direction.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="point"></param>
@@ -208,7 +240,7 @@
             {
                 return null;
             }
-            if (arcLength == 0)
+            if (Math.Abs(arcLength - 0) <= fudge)
             {
                 return point;
             }
@@ -218,21 +250,25 @@
         }
         #endregion
 
+
+
         #region Intersections
 
 
+
         /// <summary>
-        /// 
+        /// Intersects 2 circles with each other.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="intersectedCircle"></param>
-        /// <param name="result"></param>
-        /// <returns></returns>
-        public static int Intersect(this Circle circle, Circle intersectedCircle, out (Point2D point1, Point2D point2) result)
+        /// <param name="point1"></param>
+        /// <param name="point2"></param>
+        /// <returns>The number of points produced after intersection 0 or 1 or 2 points.</returns>
+        public static int Intersect(this Circle circle, Circle intersectedCircle, out Point2D point1, Point2D point2)
         {
             if (circle.IsDistant(intersectedCircle))
             {
-                result = (null, null);
+                point1 = point2 = null;
                 return 0;
             }
             else if (circle.IsTouchingExternally(intersectedCircle))
@@ -240,7 +276,8 @@
                 Vector2D vector = intersectedCircle.CenterPoint - circle.CenterPoint;
                 vector = vector.Normalize();
                 Point2D point = circle.CenterPoint + (vector * circle.Radius);
-                result = (point, point);
+                point1 = point;
+                point2 = point;
                 return 1;
             }
             else if (intersectedCircle.IsTouchingInternally(intersectedCircle))
@@ -251,7 +288,8 @@
                 Vector2D vector = smallerCircle.CenterPoint - biggerCircle.CenterPoint;
                 vector = vector.Normalize();
                 Point2D point = biggerCircle.CenterPoint + (vector * biggerCircle.Radius);
-                result = (point, point);
+                point1 = point;
+                point2 = point;
                 return 1;
 
             }
@@ -271,46 +309,74 @@
                 double cy2 = circle.CenterPoint.Y + a * (intersectedCircle.CenterPoint.Y - circle.CenterPoint.Y) / dist;
 
 
-                Point2D point1 = new Point2D(
-                    (cx2 + h * (intersectedCircle.CenterPoint.Y - circle.CenterPoint.Y) / dist),
-                    (cy2 - h * (intersectedCircle.CenterPoint.X - circle.CenterPoint.X) / dist));
+                point1 = new Point2D(
+                   (cx2 + h * (intersectedCircle.CenterPoint.Y - circle.CenterPoint.Y) / dist),
+                   (cy2 - h * (intersectedCircle.CenterPoint.X - circle.CenterPoint.X) / dist));
 
 
-                Point2D point2 = new Point2D(
+                point2 = new Point2D(
                     (cx2 - h * (intersectedCircle.CenterPoint.Y - circle.CenterPoint.Y) / dist),
                     (cy2 + h * (intersectedCircle.CenterPoint.X - circle.CenterPoint.X) / dist));
 
 
-                result = (point1, point2);
                 return 2;
             }
         }
 
 
 
+
+
+
         /// <summary>
-        /// 
+        /// Intersects a line with a circle.
         /// </summary>
         /// <param name="circle"></param>
         /// <param name="line"></param>
-        /// <param name="result"></param>
-        /// <returns></returns>
-        public static int Intersect(this Circle circle, Line2D line, out (Point2D point1, Point2D point2) result)
+        /// <param name="point1"></param>
+        /// <param name="point2"></param>
+        /// <returns>Number of points produced after intersection 0 or 1 or 2 points.</returns>
+        public static int Intersect(this Circle circle, Line2D line, out Point2D point1, out Point2D point2)
         {
             if (circle.IsDistant(line))
             {
-                result = (null, null);
+                point1 = point2 = null;
                 return 0;
             }
             else if (circle.IsTangent(line))
             {
                 Point2D point = line.Project(circle.CenterPoint);
-                result = (point, point);
+                point1 = point2 = point;
                 return 1;
             }
             else
             {
+                //HANDLE IF THE LINE IS ON THE CENTER POINT.
+
                 double distance = line.GetDistance(circle.CenterPoint);
+                if (Math.Abs(distance - 0) <= fudge)
+                {
+                    if (line.IsLineHavingPoints())
+                    {
+                        if (line.IsVertical() || line.IsVertical())
+                        {
+                            Vector2D vector = (line.StartPoint - line.EndPoint).Normalize();
+
+                            point1 = circle.CenterPoint + vector * circle.Radius;
+                            point2 = circle.CenterPoint - vector * circle.Radius;
+                            return 2;
+                        }
+                    }
+                    Point2D arbitraryPoint = new Point2D();
+                    arbitraryPoint.X = 6;
+                    arbitraryPoint.Y = line.Slope * arbitraryPoint.X + line.YIntercept;
+                    Vector2D arbitraryVector = (arbitraryPoint - circle.CenterPoint).Normalize();
+
+                    point1 = circle.CenterPoint + arbitraryVector * circle.Radius;
+                    point2 = circle.CenterPoint - arbitraryVector * circle.Radius;
+                    return 2;
+
+                }
                 double a = Math.Sqrt(circle.Radius * circle.Radius - distance * distance);
 
                 Point2D projectionPoint = line.Project(circle.CenterPoint);
@@ -319,11 +385,49 @@
                 Vector2D vec1 = new Vector2D(-1 * vec.Y, vec.X);
                 Vector2D vec2 = new Vector2D(vec.Y, -vec.X);
 
-                result = (projectionPoint + vec1 * a, projectionPoint + vec2 * a);
+                point1 = projectionPoint + vec1 * a;
+                point2 = projectionPoint + vec2 * a;
                 return 2;
             }
         }
         #endregion
+
+
+
+        #region General Calculation
+
+        /// <summary>
+        /// Calculates an arc length inscribed between a given angle.
+        /// </summary>
+        /// <param name="circle"></param>
+        /// <param name="angleInRad"></param>
+        /// <returns></returns>
+        public static double CalculateArcLength(this Circle circle, double angleInRad)
+        {
+            return circle.Radius * angleInRad;
+        }
+
+
+        /// <summary>
+        /// Calculates an arc length which boundary points are given.
+        /// </summary>
+        /// <param name="circle"></param>
+        /// <param name="point1"></param>
+        /// <param name="point2"></param>
+        /// <returns></returns>
+        public static double CalculateArcLength(this Circle circle, Point2D point1, Point2D point2)
+        {
+            Vector2D vector1 = point1 - circle.CenterPoint;
+            Vector2D vector2 = point2 - circle.CenterPoint;
+            double angle = vector1.ComputeAngle(vector2);
+            return CalculateArcLength(circle, ToRad(angle));
+        }
+
+        #endregion
+
+
+
+
 
         #endregion
     }

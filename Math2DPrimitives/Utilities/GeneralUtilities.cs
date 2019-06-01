@@ -32,7 +32,7 @@
             }
             return false;
         }
-
+        
         /// <summary>
         /// Converts an angle from radians to degree.
         /// </summary>

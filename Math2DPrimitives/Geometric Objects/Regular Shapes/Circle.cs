@@ -4,7 +4,7 @@
     using Utilities;
 
     /// <summary>
-    /// 
+    /// A class representing a circle in euclidean space.
     /// </summary>
     public class Circle : IEquatable<Circle>
     {
@@ -17,7 +17,10 @@
         private double circumference;
         private double area;
 
-
+        /// <summary>
+        /// The factor of the X of the equation of a circle before completing the square..
+        /// <seealso href="https://www.purplemath.com/modules/sqrcircle.htm"/>
+        /// </summary>
         public double XFactor
         {
             get => xFactor;
@@ -28,6 +31,10 @@
             }
         }
 
+        /// <summary>
+        /// The factor of the Y of the equation of a circle before completing the square..
+        /// <seealso href="https://www.purplemath.com/modules/sqrcircle.htm"/>
+        /// </summary>
         public double YFactor
         {
             get => yFactor;
@@ -38,6 +45,10 @@
             }
         }
 
+        /// <summary>
+        /// The constant value of the equation of a circle before completing the square.
+        /// <seealso href="https://www.purplemath.com/modules/sqrcircle.htm"/>
+        /// </summary>
         public double Constant
         {
             get => constant;
@@ -48,6 +59,9 @@
             }
         }
 
+        /// <summary>
+        ///The radius of the circle.
+        /// </summary>
         public double Radius
         {
             get => radius;
@@ -58,6 +72,9 @@
             }
         }
 
+        /// <summary>
+        /// The center point of the circle.
+        /// </summary>
         public Point2D CenterPoint
         {
             get => centerPoint;
@@ -68,6 +85,9 @@
             }
         }
 
+        /// <summary>
+        /// The area of the circle.
+        /// </summary>
         public double Area
         {
             get => area;
@@ -79,7 +99,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Calculates the center point of the circle.
         /// </summary>
         /// <returns></returns>
         private Point2D GetCenterPoint()
@@ -87,9 +107,8 @@
             return new Point2D(-1 * xFactor / 2, -1 * yFactor / 2);
         }
 
-
         /// <summary>
-        /// 
+        /// Calculates the x factor of the circle.
         /// </summary>
         /// <returns></returns>
         private double GetXFactor()
@@ -97,9 +116,8 @@
             return -1 * centerPoint.X * 2;
         }
 
-
         /// <summary>
-        /// 
+        /// Calculates the Y factor of the circle.
         /// </summary>
         /// <returns></returns>
         private double GetYFactor()
@@ -108,9 +126,8 @@
 
         }
 
-
         /// <summary>
-        /// 
+        /// Calculates the constant of the circle.
         /// </summary>
         /// <returns></returns>
         private double GetConstant()
@@ -119,9 +136,9 @@
 
         }
 
-
         /// <summary>
-        /// 
+        /// Instantiates a circle by the algebraic equation before completing the square.
+        /// <seealso href="https://www.purplemath.com/modules/sqrcircle.htm"/>
         /// </summary>
         /// <param name="xFactor"></param>
         /// <param name="yFactor"></param>
@@ -134,11 +151,9 @@
             AssignFromGeneralEquation();
         }
 
-
-
         /// <summary>
-        /// 
-        /// </summary>
+        /// Instantiates a circle by a radius and center point to complete the square of the circle function.
+        /// <seealso href="https://www.purplemath.com/modules/sqrcircle.htm"/>
         /// <param name="radius"></param>
         /// <param name="centerPoint"></param>
         public Circle(double radius, Point2D centerPoint)
@@ -150,9 +165,9 @@
         }
 
         /// <summary>
-        /// 
+        /// Instantiates a circle by 3 points.
         /// </summary>
-        /// <param name="point"></param>
+        /// <param name="point1"></param>
         /// <param name="point2"></param>
         /// <param name="point3"></param>
         public Circle(Point2D point1, Point2D point2, Point2D point3)
@@ -160,8 +175,16 @@
         { }
 
 
+        /// <summary>
+        /// Calculates the center point given 3 points on the circle.
+        /// </summary>
+        /// <param name="point1"></param>
+        /// <param name="point2"></param>
+        /// <param name="point3"></param>
+        /// <returns></returns>
         private static Point2D GetCenterPoint3Pts(Point2D point1, Point2D point2, Point2D point3)
         {
+
             Line2D line = Line2D.CreateByPoints(point1, point2);
             Line2D line2 = Line2D.CreateByPoints(point1, point3);
             Point2D p1 = line.MidPoint();
@@ -171,6 +194,10 @@
             return perpLine1.Intersect(perpLine2);
         }
 
+
+        /// <summary>
+        /// Calculates the center point, radius, area and circumference of the circle from the general equation.
+        /// </summary>
         private void AssignFromGeneralEquation()
         {
             radius = GetRadius();
@@ -179,6 +206,10 @@
             circumference = GetCircumference();
         }
 
+
+        /// <summary>
+        /// Calculates the X,Y and constant of the general equation from the complete square equation.
+        /// </summary>
         private void AssignFromRadialEquation()
         {
             this.xFactor = GetXFactor();
@@ -190,7 +221,7 @@
 
 
         /// <summary>
-        /// 
+        /// Instantiates a circle from a circumference and a center point.
         /// </summary>
         /// <param name="center"></param>
         /// <param name="circumference"></param>
@@ -199,7 +230,7 @@
         { }
 
         /// <summary>
-        /// 
+        /// Instantiates a circle from a point on circle and a center point.
         /// </summary>
         /// <param name="center"></param>
         /// <param name="pointOnCircle"></param>
@@ -208,7 +239,7 @@
         { }
 
         /// <summary>
-        /// 
+        /// Calculates the radius.
         /// </summary>
         /// <returns></returns>
         private double GetRadius()
@@ -219,7 +250,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Calculates the area.
         /// </summary>
         /// <returns></returns>
         private double GetArea()
@@ -229,7 +260,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Calculates the circumference.
         /// </summary>
         /// <returns></returns>
         private double GetCircumference()
@@ -238,17 +269,14 @@
 
         }
 
-
-
-
         /// <summary>
-        /// 
+        /// Checks the equality of two circles.
         /// </summary>
         /// <param name="circle"></param>
         /// <returns></returns>
         public bool Equals(Circle circle)
         {
-            return ((this.radius == circle.radius) && (this.centerPoint.Equals(circle.centerPoint)));
+            return (Math.Abs(this.radius - circle.radius) <= 0.01d && (this.centerPoint.Equals(circle.centerPoint)));
         }
 
 

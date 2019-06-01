@@ -203,6 +203,25 @@
             <param name="point2"></param>
             <param name="point3"></param>
         </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.GetCenterPoint3Pts(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="point1"></param>
+            <param name="point2"></param>
+            <param name="point3"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.AssignFromGeneralEquation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.AssignFromRadialEquation">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:MathEuclideanPrimitives.Geometric_Objects.Circle.#ctor(MathEuclideanPrimitives.Point2D,System.Double)">
             <summary>
             
@@ -245,6 +264,11 @@
         <member name="T:MathEuclideanPrimitives.Point2D">
             <summary>
             A Primitive representation of 2D coordinate tuples in space.
+            </summary>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Point2D.#ctor">
+            <summary>
+            Instantiates a point with zero coordinates.
             </summary>
         </member>
         <member name="M:MathEuclideanPrimitives.Point2D.#ctor(System.Double,System.Double)">
@@ -488,6 +512,15 @@
             <param name="radius"></param>
             <returns></returns>
         </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.GetMidArcPoint(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="point1"></param>
+            <param name="point2"></param>
+            <returns></returns>
+        </member>
         <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.OffsetPoint(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Point2D,System.Double)">
             <summary>
             
@@ -497,22 +530,41 @@
             <param name="arcLength"></param>
             <returns></returns>
         </member>
-        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.Intersect(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Geometric_Objects.Circle,System.@)">
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.Intersect(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Point2D@,MathEuclideanPrimitives.Point2D)">
             <summary>
             
             </summary>
             <param name="circle"></param>
             <param name="intersectedCircle"></param>
-            <param name="result"></param>
+            <param name="point1"></param>
+            <param name="point2"></param>
             <returns></returns>
         </member>
-        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.Intersect(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Line2D,System.@)">
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.Intersect(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Line2D,MathEuclideanPrimitives.Point2D@,MathEuclideanPrimitives.Point2D@)">
             <summary>
             
             </summary>
             <param name="circle"></param>
             <param name="line"></param>
-            <param name="result"></param>
+            <param name="point1"></param>
+            <param name="point2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.CalculateArcLength(MathEuclideanPrimitives.Geometric_Objects.Circle,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="angleInRad"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.CalculateArcLength(MathEuclideanPrimitives.Geometric_Objects.Circle,MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Point2D)">
+            <summary>
+            
+            </summary>
+            <param name="circle"></param>
+            <param name="point1"></param>
+            <param name="point2"></param>
             <returns></returns>
         </member>
         <member name="M:MathEuclideanPrimitives.Utilities.GeometricUtilities.LiesOnBoundedLine(MathEuclideanPrimitives.Point2D,MathEuclideanPrimitives.Line2D)">
@@ -1084,6 +1136,11 @@
             <param name="start"></param>
             <param name="end"></param>
         </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.#ctor">
+            <summary>
+            instantiates a vector with zero coordinates.
+            </summary>
+        </member>
         <member name="M:MathEuclideanPrimitives.Vector2D.#ctor(System.Double)">
             <summary>
             
@@ -1107,11 +1164,18 @@
         </member>
         <member name="M:MathEuclideanPrimitives.Vector2D.ComputeAngle(MathEuclideanPrimitives.Vector2D)">
             <summary>
-            Using dot product to compute the angle between Vectors.
+            Using dot product to compute the angle in degrees between Vectors.
             <see href="https://en.wikipedia.org/wiki/Dot_product"/>
             </summary>
             <param name="v">The other Vector.</param>
             <returns>Double Angle in Degrees.</returns>
+        </member>
+        <member name="M:MathEuclideanPrimitives.Vector2D.ComputeDirectionalAngle(MathEuclideanPrimitives.Vector2D)">
+            <summary>
+            
+            </summary>
+            <param name="v"></param>
+            <returns></returns>
         </member>
         <member name="M:MathEuclideanPrimitives.Vector2D.Normalize">
             <summary>

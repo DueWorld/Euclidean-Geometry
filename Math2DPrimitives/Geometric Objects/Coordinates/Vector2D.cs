@@ -12,16 +12,28 @@
         private double y;
         private double magintude;
 
+        /// <summary>
+        /// The magnitude of the vector.
+        /// </summary>
         public double Magintude { get => magintude; }
         public double X { get => x; set => x = value; }
         public double Y { get => y; set => y = value; }
 
+        /// <summary>
+        /// A vector moving 1 unit length in the X axis.
+        /// </summary>
         public static Vector2D BasisX => new Vector2D(1, 0);
+        /// <summary>
+        /// A vector moving 1 unit length in the Y axis.
+        /// </summary>
         public static Vector2D BasisY => new Vector2D(0, 1);
+        /// <summary>
+        /// A vector composed of the origin zero coordinates.
+        /// </summary>
         public static Vector2D Origin => new Vector2D(0, 0);
 
         /// <summary>
-        /// 
+        /// Instantiates a vector with X and Y coordinates.
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
@@ -31,8 +43,9 @@
             this.y = y;
             magintude = Math.Sqrt(x * x + y * y);
         }
+
         /// <summary>
-        /// 
+        /// Instantiates a vector moving from start point to end point.
         /// </summary>
         /// <param name="start"></param>
         /// <param name="end"></param>
@@ -44,7 +57,16 @@
         }
 
         /// <summary>
-        /// 
+        /// instantiates a vector with zero coordinates.
+        /// </summary>
+        public Vector2D()
+        {
+
+        }
+
+
+        /// <summary>
+        /// Instantiates a new vector with the same X and Y coordinated values.
         /// </summary>
         /// <param name="value"></param>
         public Vector2D(double value)
@@ -70,7 +92,7 @@
 
 
         /// <summary>
-        /// Using dot product to compute the angle between Vectors.
+        /// Using dot product to compute the angle in degrees between Vectors.
         /// <see href="https://en.wikipedia.org/wiki/Dot_product"/>
         /// </summary>
         /// <param name="v">The other Vector.</param>
@@ -84,14 +106,28 @@
         }
 
         /// <summary>
-        /// 
+        /// Computes the angle between 2 vectors with directions. 
+        /// Anti clock wise is the positive direction.
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        public double ComputeDirectionalAngle(Vector2D v)
+        {
+            double angle = this.ComputeAngle(v);
+            double determinant = this.x * v.y - this.y * v.x;
+            var sign = determinant > 0 ? 1 : -1;
+            return angle * sign;
+        }
+
+        /// <summary>
+        /// Returns a normalized vector with the same direction but a unit length.
         /// </summary>
         /// <returns></returns>
         public Vector2D Normalize() => Normalize(this);
 
 
         /// <summary>
-        /// 
+        /// Returns a normalized vector with the same direction but a unit length.
         /// </summary>
         /// <param name="vector"></param>
         /// <returns></returns>
@@ -103,13 +139,13 @@
 
 
         /// <summary>
-        /// 
+        /// Converts the given vector into a point with same coordinates.
         /// </summary>
         /// <returns></returns>
         public Point2D ToPoint() => ToPoint(this);
 
         /// <summary>
-        /// 
+        /// Converts the given vector into a point with same coordinates.
         /// </summary>
         /// <param name="vector"></param>
         /// <returns></returns>
